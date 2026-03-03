@@ -1,0 +1,15 @@
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-inline-size: 1200px) {
+  .members-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-inline-size: 900px) {
+  .members-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-inline-size: 600px) {
+  .members-grid { grid-template-columns: 1fr; }
+}

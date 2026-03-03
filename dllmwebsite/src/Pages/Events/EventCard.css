@@ -1,0 +1,89 @@
+.event-card-relative {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  position: relative;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  gap: 12px;
+  max-inline-size: 500px;
+  inline-size: 450px;
+}
+
+.event-thumbnail {
+  flex: 0 0 auto;
+  inline-size: 200px;
+  block-size: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.event-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 0 1 auto;
+}
+
+.event-activity {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.event-card-content p {
+  font-weight: 600;
+  font-size: 16px;
+  margin: 2px 0;
+  color: #333;
+}
+
+.event-card-relative .bi {
+  color: #ac3231;
+  vertical-align: middle;
+}
+
+.event-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-block-start: 6px;
+}
+
+/* Badge size and spacing */
+.event-card-content .badge {
+  font-size: 0.65rem; /* smaller font */
+  padding: 0.25em 0.5em;
+  margin-block-end: 8px;
+  display: inline-block;
+  border-radius: 0.25rem; /* curved edges */
+}
+
+/* Badge colors by event type */
+.badge-badminton {
+  background-color: #5695da;
+  color: #fff;
+}
+.badge-football {
+  background-color: #e60a0a;
+  color: #fff;
+}
+.badge-tennis {
+  background-color: #9cda56;
+  color: #333;
+}
+.badge-running {
+  background-color: #e08e3b;
+  color: #fff;
+}
+.badge-volleyball {
+  background-color: #f5ed4a;
+  color: #333;
+}
+.badge-default {
+  background-color: #0d6efd;
+  color: #fff;
+}
