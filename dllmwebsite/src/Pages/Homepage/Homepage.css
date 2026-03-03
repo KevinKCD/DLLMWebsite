@@ -1,0 +1,118 @@
+/* ================= HERO SECTION ================= */
+
+.homepage-hero {
+  min-height: 100svh; /* better than 100vh for mobile browsers */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+}
+
+/* ================= OVERLAY ================= */
+
+.homepage-overlay {
+  background: rgba(0, 0, 0, 0.28);
+  padding: 4rem 3rem;
+  border-radius: 8px;
+  color: #ffffff;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* ================= HEADING ================= */
+
+.homepage-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem); /* responsive scaling */
+  font-weight: 800;
+  margin-bottom: 1rem;
+  font-family: 'Permanent Marker', cursive;
+  line-height: 1.1;
+}
+
+/* ================= BUTTON ================= */
+
+/* Base button — keep it standard */
+.btn-ac3231 {
+  display: inline-block;
+  font-weight: 400;
+  color: #fff;
+  background-color: #ac3231;
+  border: 1px solid #ac3231;
+  padding: 0.375rem 0.75rem; /* same as Bootstrap default */
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+/* Only hero button gets larger */
+.homepage-hero .btn-ac3231 {
+  min-width: 150px;
+  padding: 0.6rem 1.5rem;
+  font-size: 1.25rem;
+}
+
+.btn-ac3231:hover {
+  background-color: #991f1f;
+  border-color: #991f1f;
+  color: #fff;
+}
+
+/* Hero button sizing */
+.homepage-hero .btn-ac3231 {
+  min-width: 150px;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+/* ================= NAV CENTER ================= */
+
+.navbar-nav-center {
+  gap: 0.75rem;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 992px) {
+  .homepage-overlay {
+    padding: 3rem 2rem;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .homepage-hero {
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .homepage-overlay {
+    padding: 2rem 1.5rem;
+  }
+
+  .homepage-hero h1 {
+    font-size: 2rem;
+  }
+
+  .homepage-hero .btn-ac3231 {
+    width: 100%; /* full-width button on mobile */
+    max-width: 300px;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 480px) {
+  .homepage-overlay {
+    padding: 1.5rem 1rem;
+  }
+
+  .homepage-hero h1 {
+    font-size: 1.75rem;
+  }
+}

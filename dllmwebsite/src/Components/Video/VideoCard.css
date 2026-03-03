@@ -1,0 +1,112 @@
+.video-cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-block-start: 20px;
+  align-items: start; /* 🔑 THIS IS THE FIX */
+}
+
+@media (max-inline-size: 1200px) {
+  .video-cards-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for smaller screens */
+  }
+}
+
+@media (max-inline-size: 900px) {
+  .video-cards-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+}
+
+@media (max-inline-size: 600px) {
+  .video-cards-container {
+    grid-template-columns: 1fr; /* 1 column */
+  }
+}
+
+.video-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  transition: all 0.3s ease;
+  block-size: fit-content; /* 🔑 */
+}
+
+
+/* Video player sizing */
+.video-card-player {
+  inline-size: 100%;
+  block-size: 200px; /* short card */
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Card body */
+.video-card-body {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-block-start: 10px;
+}
+
+/* Always visible text */
+.video-card h5 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-block-end: 6px;
+}
+
+.video-card .video-attributes {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-block-start: 6px;
+}
+
+.video-card .video-attributes div {
+  margin-block-start: 3px;
+}
+
+/* Badge colors */
+.badge-sport {
+  display: inline-block;
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  border-radius: 12px;
+  margin-block-end: 4px;
+  font-weight: 700;
+}
+
+/* Dynamic colors for sports */
+.badge-badminton { background-color: #5695da; }
+.badge-football { background-color: #e60a0a; }
+.badge-tennis { background-color: #9cda56; }
+.badge-running { background-color: #e08e3b; }
+.badge-volleyball { background-color: #f5ed4a; color: #333; }
+.badge-default { background-color: #0d6efd; }
+
+/* Dropdown toggle */
+.description-toggle {
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #0d6efd;
+  margin-block-start: 8px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.hidden-content {
+  max-block-size: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-block-size 0.3s ease, opacity 0.3s ease;
+}
+
+.video-card.show-dropdown .hidden-content {
+  max-block-size: 300px;
+  opacity: 1;
+  margin-block-start: 10px;
+}
