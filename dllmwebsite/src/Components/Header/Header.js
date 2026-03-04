@@ -44,7 +44,7 @@ function Header() {
   }, []);
 
   return (
-    <header className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <header className="navbar navbar-expand-lg bg-white shadow-sm fixed top">
       <div className="container-fluid d-flex align-items-center">
         {/* LEFT: Logo */}
         <div className="navbar-section navbar-left">
@@ -52,8 +52,8 @@ function Header() {
             href="/"
             className="navbar-brand d-flex align-items-center permanent-marker-regular"
           >
-            <img src={logo} alt="UNCSports Logo" className="logo-img me-2" />
-            UncSports
+            <img src={logo} alt="DLLM Logo" className="logo-img me-2" />
+            DLLM Sporting
           </a>
         </div>
 
@@ -81,7 +81,7 @@ function Header() {
             <div className="navbar-search-container me-3" ref={searchRef}>
               <div className={`navbar-search ${searchOpen ? 'open' : ''}`}>
                 <i
-                  className="bi bi-search search-icon text-white"
+                  className="bi bi-search search-icon"
                   onClick={toggleSearch}
                 ></i>
 
@@ -106,13 +106,11 @@ function Header() {
                     alt="avatar"
                     className="navbar-avatar"
                   />
-                  <strong className="navbar-username text-white">
-                    {user.name}
-                  </strong>
+                  <strong className="navbar-username">{user.name}</strong>
                 </Link>
 
                 <button
-                  className="btn-base btn-sm btn-primary-red ms-3"
+                  className="btn-base btn-sm btn-primary-blue ms-3"
                   onClick={logout}
                 >
                   Logout
@@ -121,13 +119,13 @@ function Header() {
             ) : (
               <div className="d-flex align-items-center navbar-auth gap-2">
                 <button
-                  className="btn-base btn-sm btn-primary-red"
+                  className="btn-base btn-sm btn-primary-blue"
                   onClick={() => navigate('/login')}
                 >
                   Login
                 </button>
                 <button
-                  className="btn-base btn-sm btn-primary-red"
+                  className="btn-base btn-sm btn-primary-blue"
                   onClick={() => navigate('/signup')}
                 >
                   Sign up

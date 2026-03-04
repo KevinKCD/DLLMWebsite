@@ -58,7 +58,10 @@ function Events() {
         }
         setEvents(items);
       },
-      (err) => pushToast('Failed to load events', 'error')
+      (err) => {
+        console.error('Firestore error:', err);
+        pushToast(err.message, 'error');
+      }
     );
     return () => unsub();
   }, [pushToast]);
