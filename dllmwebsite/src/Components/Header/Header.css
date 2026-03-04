@@ -6,6 +6,7 @@
 html,
 body {
   margin: 0;
+  padding-top: 30px;
 }
 
 /* ================= NAVBAR ================= */
@@ -13,6 +14,14 @@ body {
 header.navbar {
   background-color: #ac3231;
   padding: 0.5rem 1rem;
+  background-color: #ac3231;
+  padding: 0.5rem 1rem;
+
+  position: fixed; /* ADD */
+  top: 0; /* ADD */
+  left: 0; /* ADD */
+  width: 100%; /* ADD */
+  z-index: 1000; /* ADD */
 }
 
 /* Make layout flexible */
@@ -34,14 +43,14 @@ header.navbar {
 header.navbar .navbar-brand {
   display: flex;
   align-items: center;
-  color: #fff;
+  color: #014ec3;
   font-weight: 700;
   text-decoration: none;
 }
 
 header.navbar .navbar-brand img.logo-img {
   height: 40px;
-  width: 40px;
+  width: 75px;
   margin-right: 0.5rem;
 }
 
@@ -60,13 +69,17 @@ header.navbar .navbar-brand img.logo-img {
 .navbar-nav .nav-link {
   display: flex;
   align-items: center;
-  color: #fff;
-  font-weight: 500;
+  color: #014ec3; /* light gray text */
+  font-family: 'Permanent Marker', cursive; /* same font as brand */
+  font-weight: 100; /* match the brand weight */
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  transition: background 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
   text-decoration: none;
   white-space: nowrap;
+  font-size: 20px;
 }
 
 .navbar-nav .nav-link i {
@@ -76,32 +89,6 @@ header.navbar .navbar-brand img.logo-img {
 
 .navbar-nav .nav-link:hover {
   background: rgba(255, 255, 255, 0.1);
-}
-
-/* ================= AUTH BUTTON ================= */
-
-.btn-ac3231 {
-  display: inline-block;
-  font-weight: 400;
-  color: #fff;
-  background-color: #ac3231;
-  border: 1px solid #ac3231;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  border-radius: 0.25rem;
-  transition: all 0.15s ease-in-out;
-}
-
-.btn-ac3231:hover {
-  background-color: #991f1f;
-  border-color: #991f1f;
-}
-
-.btn-ac3231:focus,
-.btn-ac3231:active {
-  background-color: #8c1a1a;
-  border-color: #8c1a1a;
-  box-shadow: 0 0 0 0.25rem rgba(172, 50, 49, 0.5);
 }
 
 /* ================= AVATAR ================= */
@@ -115,7 +102,7 @@ header.navbar .navbar-brand img.logo-img {
 }
 
 .navbar-username {
-  color: #fff;
+  color: #014ec3;
   font-weight: 500;
   white-space: nowrap;
   margin-left: 0.5rem;
@@ -144,10 +131,11 @@ header.navbar .navbar-brand img.logo-img {
   cursor: auto;
 }
 
-.navbar-search .search-icon {
-  color: #fff;
-  font-size: 1.2rem;
-  padding: 0 8px;
+.search-icon {
+  color: #014ec3;
+  font-size: 1.4rem;
+  text-shadow: 0 0 2px #014ec3;
+  padding: 4px; /* ADD THIS */
 }
 
 .navbar-search input.form-control {
