@@ -162,7 +162,29 @@
   background: #fef2f2;
 }
 
-/* ─── Content layout ────────────────────────────────────────────────────── */
+/* ─── Description ────────────────────────────────────────────────────────── */
+.edp-description {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+.edp-description__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 10px;
+}
+
+.edp-description__text {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
 .edp-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -320,13 +342,13 @@
 }
 
 .edp-join-btn--leave {
-  background: #f1f5f9 !important;
-  color: #64748b;
+  background: #ed8c8c !important;
+  color: #832e2e;
   border: 2px solid #e2e8f0;
 }
 
 .edp-join-btn--leave:hover {
-  background: #e2e8f0 !important;
+  background: #db4d4d !important;
 }
 
 .edp-join-btn--disabled {
@@ -425,13 +447,26 @@
   position: fixed;
   bottom: 24px;
   right: 24px;
-  padding: 13px 20px;
-  border-radius: 10px;
+  padding: 14px 20px;
+  border-radius: 12px;
   font-size: 14px;
-  font-weight: 500;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   animation: edp-toast-in 0.25s ease;
   z-index: 1060;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 240px;
+}
+
+.edp-toast__logo {
+  width: 70px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+  flex-shrink: 0;
+  padding: 4px;
 }
 
 @keyframes edp-toast-in {

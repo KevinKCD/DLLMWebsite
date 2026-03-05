@@ -3,3 +3,139 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
+/* Add these to your existing EventsPage.css */
+
+/* ─── Page header ────────────────────────────────────────────────────────── */
+.events-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.events-page__title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.4px;
+}
+
+.events-page__subtitle {
+  font-size: 14px;
+  color: #94a3b8;
+  margin: 4px 0 0;
+}
+
+.events-page__add-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.events-page__add-btn:hover {
+  background: #1d4ed8;
+}
+
+/* ─── Controls row ───────────────────────────────────────────────────────── */
+.events-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+/* ─── Search ─────────────────────────────────────────────────────────────── */
+.events-search-wrap {
+  position: relative;
+  max-width: 420px;
+}
+
+.events-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.events-search-input {
+  width: 100%;
+  padding: 10px 14px 10px 38px;
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #0f172a;
+  box-sizing: border-box;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.events-search-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.events-search-input::placeholder {
+  color: #94a3b8;
+}
+
+/* ─── Sport filter pills ─────────────────────────────────────────────────── */
+.events-filter-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.events-filter-pill {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px solid #e2e8f0;
+  background: #fff;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.events-filter-pill:hover {
+  border-color: #6366f1;
+  color: #6366f1;
+}
+
+.events-filter-pill--active {
+  background: #6366f1;
+  border-color: #6366f1;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ─── Empty state ────────────────────────────────────────────────────────── */
+.events-empty {
+  padding: 64px 24px;
+  text-align: center;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.events-empty__text {
+  font-size: 15px;
+  color: #94a3b8;
+  margin: 0;
+}

@@ -15,6 +15,7 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 import { uploadToCloudinary } from '../../services/Cloudinary';
+import { SearchIcon } from '../../components/icons';
 import './EventsPage.css';
 import { Event } from '../../types';
 
@@ -36,6 +37,17 @@ interface Toast {
   type: 'info' | 'success' | 'error';
 }
 
+const SPORTS = [
+  'All',
+  'Football',
+  'Basketball',
+  'Tennis',
+  'Running',
+  'Volleyball',
+  'Badminton',
+  'Other',
+];
+
 function Events() {
   const { user } = useAuth();
   const isAdmin = (user as any)?.admin === true;
@@ -45,6 +57,8 @@ function Events() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [editing, setEditing] = useState<Event | null>(null);
   const [toasts, setToasts] = useState<Toast[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sportFilter, setSportFilter] = useState('All');
 
   const pushToast = useCallback(
     (message: string, type: Toast['type'] = 'info') => {
@@ -90,6 +104,16 @@ function Events() {
     return () => unsub();
   }, [pushToast]);
 
+  /* ── Search + filter ── */
+  const filteredEvents = events.filter((e) => {
+    const q = searchQuery.toLowerCase();
+    const matchesSearch =
+      (e.activity as string)?.toLowerCase().includes(q) ||
+      (e.location as string)?.toLowerCase().includes(q);
+    const matchesSport = sportFilter === 'All' || e.event === sportFilter;
+    return matchesSearch && matchesSport;
+  });
+
   const handleAddEvent = async (data: EventFormData): Promise<void> => {
     const tempId = `temp-${Date.now()}`;
     const tempEvent: Event = {
@@ -116,7 +140,6 @@ function Events() {
           'event_thumbnails'
         );
       }
-
       const payload: Omit<Event, 'id'> & { createdAt: string } = {
         activity: data.title,
         date: data.date,
@@ -128,7 +151,6 @@ function Events() {
         createdAt: new Date().toISOString(),
         ...(thumbnailUrl && { thumbnailUrl }),
       };
-
       const docRef = await addDoc(collection(db, 'events'), payload);
       setEvents((prev) =>
         prev.map((e) => (e.id === tempId ? { id: docRef.id, ...payload } : e))
@@ -155,7 +177,6 @@ function Events() {
       let thumbnailUrl: string | null = data.thumbnailFile
         ? await uploadToCloudinary(data.thumbnailFile, 'event_thumbnails')
         : (data.thumbnailUrl ?? null);
-
       const payload: Partial<Event> = {
         activity: data.title,
         date: data.date,
@@ -165,7 +186,6 @@ function Events() {
         capacity: Number(data.capacity) || 0,
         ...(thumbnailUrl && { thumbnailUrl }),
       };
-
       await updateDoc(doc(db, 'events', id), payload);
       pushToast('Event updated', 'success');
       setEditing(null);
@@ -187,41 +207,85 @@ function Events() {
   };
 
   return (
-    <div className="container py-5">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="fw-bold">Upcoming Events</h2>
+    <div className="events-page container pt-4">
+      {/* ── Header ── */}
+      <div className="events-page__header">
+        <div>
+          <h2 className="events-page__title">Upcoming Events</h2>
+          <p className="events-page__subtitle">
+            {filteredEvents.length} event
+            {filteredEvents.length !== 1 ? 's' : ''} found
+          </p>
+        </div>
         {isAdmin && (
           <button
-            className="btn btn-primary"
+            className="events-page__add-btn"
             onClick={() => {
               setEditing(null);
               setShowModal(true);
             }}
           >
-            Add Event
+            + Add Event
           </button>
         )}
       </div>
 
-      <div className="events-grid">
-        {events.map((event) => (
-          <div
-            key={event.id}
-            className="event-card-wrapper"
-            onClick={() =>
-              !(event as any)._temp && navigate(`/events/${event.id}`)
-            }
-          >
-            <EventCard
-              event={event}
-              onEdit={(e) => {
-                handleEditClick(e);
-              }}
-              onDelete={handleDeleteEvent}
-            />
-          </div>
-        ))}
+      {/* ── Search + filter bar ── */}
+      <div className="events-controls">
+        <div className="events-search-wrap">
+          <span className="events-search-icon">
+            <SearchIcon size={16} stroke="#94a3b8" />
+          </span>
+          <input
+            className="events-search-input"
+            type="text"
+            placeholder="Search by name or location..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+
+        <div className="events-filter-wrap">
+          {SPORTS.map((sport) => (
+            <button
+              key={sport}
+              className={`events-filter-pill${sportFilter === sport ? ' events-filter-pill--active' : ''}`}
+              onClick={() => setSportFilter(sport)}
+            >
+              {sport}
+            </button>
+          ))}
+        </div>
       </div>
+
+      {/* ── Grid ── */}
+      {filteredEvents.length === 0 ? (
+        <div className="events-empty">
+          <p className="events-empty__text">
+            {searchQuery || sportFilter !== 'All'
+              ? 'No events match your search.'
+              : 'No upcoming events yet.'}
+          </p>
+        </div>
+      ) : (
+        <div className="events-grid">
+          {filteredEvents.map((event) => (
+            <div
+              key={event.id}
+              className="event-card-wrapper"
+              onClick={() =>
+                !(event as any)._temp && navigate(`/events/${event.id}`)
+              }
+            >
+              <EventCard
+                event={event}
+                onEdit={handleEditClick}
+                onDelete={handleDeleteEvent}
+              />
+            </div>
+          ))}
+        </div>
+      )}
 
       <EventModal
         open={showModal}
@@ -237,7 +301,7 @@ function Events() {
         initialValues={editing ?? {}}
       />
 
-      {/* Toasts */}
+      {/* ── Toasts ── */}
       <div
         style={{
           position: 'fixed',

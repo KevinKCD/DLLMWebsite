@@ -76,21 +76,6 @@ const Header: React.FC = () => {
         {/* RIGHT */}
         <div className="navbar-section navbar-right">
           <div className="d-flex align-items-center">
-            <div className="navbar-search-container me-3" ref={searchRef}>
-              <div className={`navbar-search ${searchOpen ? 'open' : ''}`}>
-                <i
-                  className="bi bi-search search-icon"
-                  onClick={toggleSearch}
-                />
-                <input
-                  type="text"
-                  className="form-control search-input"
-                  placeholder="Search..."
-                  autoFocus={searchOpen}
-                />
-              </div>
-            </div>
-
             {user ? (
               <div className="d-flex align-items-center navbar-auth">
                 <Link
@@ -102,7 +87,7 @@ const Header: React.FC = () => {
                     alt="avatar"
                     className="navbar-avatar"
                   />
-                  <strong className="navbar-username">{user.name}</strong>
+                  <strong className="navbar-username pt-2">{user.name}</strong>
                 </Link>
 
                 <button
