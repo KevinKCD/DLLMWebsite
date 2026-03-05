@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './Header.css';
-import logo from '../Images/Logo.jpg';
+import logo from '../../assets/images/Logo.jpg';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../../Context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 import '../Buttons/Buttons.css';
 
 interface NavItem {

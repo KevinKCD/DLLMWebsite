@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { AuthProvider } from './Context/AuthContext'; // if using Auth
+import { AuthProvider } from './context/AuthContext'; // if using Auth
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';

@@ -1,0 +1,198 @@
+.modal-thumbnail-zone {
+  width: 100%;
+  min-height: 200px;
+  border: 2px dashed #c5cfe0;
+  border-radius: 10px;
+  background: #f4f7fb;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.modal-thumbnail-zone--dragging {
+  border-color: #4a90d9;
+  background: #eaf2fb;
+}
+.modal-thumbnail-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 32px 16px;
+}
+.modal-thumbnail-primary {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+.modal-thumbnail-or {
+  font-size: 13px;
+  color: #aaa;
+  margin: 0;
+  font-weight: 500;
+}
+/* Filled / preview state */
+.modal-thumbnail-zone--filled {
+  border-style: solid;
+  min-height: 180px;
+  position: relative;
+  cursor: pointer;
+}
+.modal-thumbnail-preview {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+.modal-thumbnail-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.modal-thumbnail-zone--filled:hover .modal-thumbnail-overlay {
+  opacity: 1;
+}
+.modal-thumbnail-change-label {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ─── Thumbnail Upload Zone ─────────────────────────────────────────────── */
+
+.modal-thumbnail-zone {
+  width: 100%;
+  min-height: 210px;
+  background-color: #64748b; /* teal fill — matches reference */
+  border: 3px dashed rgba(255, 255, 255, 0.45);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Drag-active state: brighten slightly and make border fully white */
+.modal-thumbnail-zone--dragging {
+  background-color: #64748b;
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+/* ─── Empty / Upload Prompt ─────────────────────────────────────────────── */
+
+.modal-thumbnail-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 32px 24px;
+  user-select: none;
+}
+
+/* Cloud + arrow SVG icon */
+.modal-thumbnail-icon svg {
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+}
+
+/* "Drag & Drop to Upload File" */
+.modal-thumbnail-primary {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+/* "OR" separator */
+.modal-thumbnail-or {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* "Browse File" outlined button */
+.modal-thumbnail-browse-btn {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+  padding: 7px 28px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+  margin-top: 2px;
+}
+
+.modal-thumbnail-browse-btn:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.modal-thumbnail-browse-btn:active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ─── Filled / Preview State ────────────────────────────────────────────── */
+
+.modal-thumbnail-zone--filled {
+  border-style: solid;
+  border-color: #64748b;
+  background-color: #000; /* letterbox colour if image doesn't fill */
+  min-height: 180px;
+  position: relative;
+  cursor: pointer;
+}
+
+.modal-thumbnail-preview {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  border-radius: 9px;
+}
+
+.modal-thumbnail-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.modal-thumbnail-zone--filled:hover .modal-thumbnail-overlay {
+  opacity: 1;
+}
+
+.modal-thumbnail-change-label {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
