@@ -1,0 +1,192 @@
+.event-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  inline-size: 375px;
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.event-card--pending {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* ── Image ── */
+
+.event-card-image-wrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.event-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover .event-card-image {
+  transform: scale(1.04);
+}
+
+/* ── Sport badge ── */
+
+.event-card-sport-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: capitalize;
+  backdrop-filter: blur(4px);
+}
+
+/* ── Date overlay ── */
+
+.event-card-date {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.1;
+}
+
+.event-card-date-day {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.event-card-date-month {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+/* ── Pending overlay ── */
+
+.event-card-pending-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Body ── */
+
+.event-card-body {
+  padding: 16px 18px 20px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.event-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+/* ── Meta ── */
+
+.event-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.event-card-meta-item {
+  font-size: 0.8rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Actions ── */
+
+.event-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.event-card-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition:
+    opacity 0.15s ease,
+    background 0.15s ease;
+}
+
+.event-card-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.event-card-btn--primary {
+  background: #1a3a8f;
+  color: #fff;
+}
+
+.event-card-btn--primary:hover:not(:disabled) {
+  background: #162f73;
+}
+
+.event-card-btn--outline {
+  background: transparent;
+  border: 1.5px solid #94a3b8;
+  color: #475569;
+}
+
+.event-card-btn--outline:hover:not(:disabled) {
+  background: #f1f5f9;
+}
+
+.event-card-btn--danger {
+  background: #ef4444;
+  color: #fff;
+}
+
+.event-card-btn--danger:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.event-card-btn--danger-outline {
+  background: transparent;
+  border: 1.5px solid #ef4444;
+  color: #ef4444;
+}
+
+.event-card-btn--danger-outline:hover:not(:disabled) {
+  background: #fef2f2;
+}

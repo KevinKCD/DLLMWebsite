@@ -1,0 +1,146 @@
+/* ================= PAGE CONTAINER ================= */
+.profile-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 60px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* ================= HEADER ================= */
+.profile-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.profile-header-info h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.profile-bio {
+  margin-top: 8px;
+  color: #666;
+}
+
+/* ================= AVATAR ================= */
+.profile-avatar-wrapper {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.profile-avatar-large {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Edit icon */
+.avatar-upload-label {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #014ec3;
+  color: #fff;
+  font-size: 0.9rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.avatar-upload-label:hover {
+  background-color: #991f1f;
+  transform: scale(1.1);
+}
+
+/* ================= STATS ================= */
+.profile-stats-row {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.profile-stat {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.stat-number {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ================= EVENTS ================= */
+.joined-events {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-card h5 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.event-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-stats-row {
+    flex-direction: column;
+  }
+
+  .profile-stat {
+    width: 100%;
+  }
+}

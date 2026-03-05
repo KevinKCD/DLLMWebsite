@@ -65,15 +65,15 @@
 
 /* ================= BRAND RED ================= */
 
-.btn-primary-red {
-  background-color: #ac3231;
-  border-color: #ac3231;
+.btn-primary-blue {
+  background-color: #014ec3;
+  border-color: #014ec3;
   color: #fff;
 }
 
-.btn-primary-red:hover {
-  background-color: #991f1f;
-  border-color: #991f1f;
+.btn-primary-blue:hover {
+  background-color: #014ec3;
+  border-color: #014ec3;
   color: #fff;
   transform: translateY(-1px);
 }
