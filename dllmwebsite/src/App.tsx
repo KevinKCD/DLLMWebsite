@@ -6,16 +6,16 @@ import {
   Navigate,
 } from 'react-router-dom';
 
-import Header from './Components/Header/Header';
-import Homepage from './Pages/Homepage/Homepage';
-import Videos from './Pages/Videos/Videos';
-import Members from './Pages/Members/Members';
-import Events from './Pages/Events/Events';
-import EventDetails from './Pages/Events/EventDetails';
-import Profile from './Pages/Profile/Profile';
-import SignUp from './Pages/Auth/SignUp';
-import Login from './Pages/Auth/Login';
-import Footer from './Components/Footer/Footer';
+import Header from './components/Header/Header';
+import Homepage from './features/homepage/Homepage';
+import Videos from './features/videos/Videos';
+import Members from './features/members/Members';
+import Events from './features/events/EventsPage';
+import EventDetailsPage from './features/events/EventDetailsPage';
+import Profile from './features/profiles/Profile';
+import SignUp from './features/auth/SignUp';
+import Login from './features/auth/Login';
+import Footer from './components/Footer/Footer';
 
 import './App.css';
 
@@ -32,7 +32,7 @@ const App: React.FC = () => {
             <Route path="/videos" element={<Videos />} />
             <Route path="/members" element={<Members />} />
             <Route path="/events" element={<Events />} />
-            <Route path="/events/:eventId" element={<EventDetails />} />
+            <Route path="/events/:eventId" element={<EventDetailsPage />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/profile/:id" element={<Profile />} />
             <Route path="/signup" element={<SignUp />} />

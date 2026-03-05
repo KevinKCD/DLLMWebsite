@@ -5,7 +5,7 @@ import React, {
   useEffect,
   ReactNode,
 } from 'react';
-import { auth, db } from '../Firebase/Firebase';
+import { auth, db } from '../lib/Firebase';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,

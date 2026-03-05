@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import logo from '../Images/DLLMWhite.png'; // adjust path to your logo
+import logo from '../../assets/images/DLLMWhite.png';
 
 const Footer: React.FC = () => {
   return (
