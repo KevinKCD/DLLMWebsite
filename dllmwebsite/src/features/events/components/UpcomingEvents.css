@@ -1,0 +1,210 @@
+.upcoming-events-section {
+  padding: 3rem 2rem;
+  background-color: #fff;
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Header ── */
+
+.upcoming-events-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.upcoming-events-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px;
+}
+
+.upcoming-events-subtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.upcoming-events-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1.5px solid #1a3a8f;
+  color: #1a3a8f;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+  white-space: nowrap;
+}
+
+.upcoming-events-view-all:hover {
+  background: #1a3a8f;
+  color: #ffffff;
+}
+
+.upcoming-events-view-all .arrow {
+  transition: transform 0.2s ease;
+}
+
+.upcoming-events-view-all:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ── Grid ── */
+
+.upcoming-events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ── Card ── */
+
+.event-preview-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.event-preview-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Image ── */
+
+.event-preview-image-wrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.event-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.event-preview-card:hover .event-preview-image {
+  transform: scale(1.04);
+}
+
+/* ── Sport badge ── */
+
+.event-preview-sport-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: capitalize;
+  backdrop-filter: blur(4px);
+}
+
+/* ── Date overlay ── */
+
+.event-preview-date {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.1;
+}
+
+.event-preview-day {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.event-preview-month {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+/* ── Body ── */
+
+.event-preview-body {
+  padding: 16px 18px 20px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.event-preview-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px;
+}
+
+.event-preview-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.event-preview-meta-item {
+  font-size: 0.8rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── States ── */
+
+.upcoming-events-loading,
+.upcoming-events-empty {
+  text-align: center;
+  color: #64748b;
+  padding: 3rem 0;
+  font-size: 0.95rem;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 992px) {
+  .upcoming-events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .upcoming-events-section {
+    padding: 2rem 1rem;
+  }
+
+  .upcoming-events-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}

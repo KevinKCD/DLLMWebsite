@@ -1,0 +1,307 @@
+/* ─── Modal Shell ────────────────────────────────────────────────────────── */
+.app-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 0;
+}
+
+.app-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+.app-modal-close {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #64748b;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.app-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.app-modal-body {
+  padding: 20px 24px 24px;
+}
+
+/* ─── Fields ─────────────────────────────────────────────────────────────── */
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.modal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.modal-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* ─── Inputs & Selects ───────────────────────────────────────────────────── */
+.modal-input,
+.modal-select,
+.modal-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #0f172a;
+  box-sizing: border-box;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s,
+    background 0.15s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.modal-input:focus,
+.modal-select:focus,
+.modal-textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.modal-input::placeholder,
+.modal-textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* Date input icon colour fix */
+.modal-input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+/* Select arrow */
+.modal-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.modal-select option {
+  color: #0f172a;
+  background: #fff;
+}
+
+/* Textarea */
+.modal-textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+/* ─── Error ──────────────────────────────────────────────────────────────── */
+.modal-error {
+  font-size: 12px;
+  color: #dc2626;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* ─── Actions ────────────────────────────────────────────────────────────── */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.modal-btn {
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition:
+    background 0.15s,
+    opacity 0.15s,
+    transform 0.1s;
+  letter-spacing: 0.01em;
+}
+
+.modal-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.modal-btn--outline {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1.5px solid #e2e8f0;
+}
+
+.modal-btn--outline:hover:not(:disabled) {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.modal-btn--primary {
+  background: #6366f1;
+  color: #fff;
+}
+
+.modal-btn--primary:hover:not(:disabled) {
+  background: #4f46e5;
+}
+
+.modal-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ─── Thumbnail Upload Zone ──────────────────────────────────────────────── */
+.modal-thumbnail-zone {
+  width: 100%;
+  min-height: 210px;
+  background-color: #64748b;
+  border: 3px dashed rgba(255, 255, 255, 0.45);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.modal-thumbnail-zone--dragging {
+  background-color: #475569;
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+.modal-thumbnail-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 32px 24px;
+  user-select: none;
+}
+
+.modal-thumbnail-icon svg {
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+}
+
+.modal-thumbnail-primary {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.modal-thumbnail-or {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.modal-thumbnail-browse-btn {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+  padding: 7px 28px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+  margin-top: 2px;
+}
+
+.modal-thumbnail-browse-btn:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.modal-thumbnail-browse-btn:active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.modal-thumbnail-zone--filled {
+  border-style: solid;
+  border-color: #64748b;
+  background-color: #000;
+  min-height: 180px;
+  position: relative;
+  cursor: pointer;
+}
+
+.modal-thumbnail-preview {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  border-radius: 9px;
+}
+
+.modal-thumbnail-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.modal-thumbnail-zone--filled:hover .modal-thumbnail-overlay {
+  opacity: 1;
+}
+
+.modal-thumbnail-change-label {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
