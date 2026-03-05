@@ -1,0 +1,48 @@
+.page-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background-color: #1a3a8f;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.page-banner-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  height: 42px;
+  background-color: #014ec3;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.page-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.page-banner-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.page-banner-message {
+  font-size: 0.875rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+.banner-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}

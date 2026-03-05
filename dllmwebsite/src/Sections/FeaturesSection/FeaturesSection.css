@@ -1,0 +1,16 @@
+.features-section {
+  background-color: #f8f9fb;
+  margin-top: 3rem;
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* ================= FEATURES GRID ================= */
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
