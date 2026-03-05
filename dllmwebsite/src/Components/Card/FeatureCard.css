@@ -1,0 +1,64 @@
+.feature-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  flex: 1 1 220px;
+  max-width: 280px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Icon wrapper ── */
+
+.feature-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background-color: #e8eef9;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  color: #1a3a8f;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.feature-card:hover .feature-card-icon {
+  background-color: #1a3a8f;
+  color: #ffffff;
+}
+
+/* ── Text ── */
+
+.feature-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+}
+
+.feature-card-description {
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+  .feature-card {
+    max-width: 100%;
+  }
+}

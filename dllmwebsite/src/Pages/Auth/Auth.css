@@ -26,7 +26,7 @@ body,
   justify-content: center;
   align-items: center;
   padding: 60px 40px;
-  background-color: brown;
+  background-color: #fff;
 }
 
 /* Modal card */
@@ -42,7 +42,7 @@ body,
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000;
+  background: #fff;
   overflow: hidden; /* prevents image overflow */
 }
 
