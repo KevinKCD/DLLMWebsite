@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../lib/Firebase';
+import { useNavigate } from 'react-router-dom';
 import EventCard from '../events/components/EventCard/EventCard';
 import { useAuth } from '../../context/AuthContext';
 import { AppEvent } from '../../types';
@@ -16,6 +17,7 @@ const ProfileEventCard: React.FC<ProfileEventCardProps> = ({
 }) => {
   const [event, setEvent] = useState<AppEvent | null>(null);
   const { user, leaveEvent } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchEvent = async (): Promise<void> => {
@@ -28,7 +30,6 @@ const ProfileEventCard: React.FC<ProfileEventCardProps> = ({
           ...(snap.data() as Omit<AppEvent, 'id'>),
         };
 
-        // Only show the event if the current user has joined
         if (data.people?.some((p) => p.uid === user?.uid)) {
           setEvent(data);
         } else {
@@ -57,13 +58,18 @@ const ProfileEventCard: React.FC<ProfileEventCardProps> = ({
   };
 
   return (
-    <EventCard
-      event={event}
-      hideAdminControls={true}
-      leaveEventButton={
-        canLeave ? { onClick: handleLeave, label: 'Leave Event' } : undefined
-      }
-    />
+    <div
+      onClick={() => navigate(`/events/${event.id}`)}
+      style={{ cursor: 'pointer' }}
+    >
+      <EventCard
+        event={event}
+        hideAdminControls={true}
+        leaveEventButton={
+          canLeave ? { onClick: handleLeave, label: 'Leave Event' } : undefined
+        }
+      />
+    </div>
   );
 };
 

@@ -5,11 +5,11 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-
+import ScrollToTop from './features/events/components/ScrollToTop';
 import Header from './components/Header/Header';
 import Homepage from './features/homepage/Homepage';
 import Videos from './features/videos/Videos';
-import Members from './features/members/Members';
+import MembersPage from './features/members/MembersPage';
 import Events from './features/events/EventsPage';
 import EventDetailsPage from './features/events/EventDetailsPage';
 import Profile from './features/profiles/Profile';
@@ -23,6 +23,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="app-wrapper">
+        <ScrollToTop />
         <Header />
 
         <main className="main-content-container">
@@ -30,7 +31,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Navigate to="/homepage" replace />} />
             <Route path="/homepage" element={<Homepage />} />
             <Route path="/videos" element={<Videos />} />
-            <Route path="/members" element={<Members />} />
+            <Route path="/members" element={<MembersPage />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:eventId" element={<EventDetailsPage />} />
             <Route path="/profile" element={<Profile />} />

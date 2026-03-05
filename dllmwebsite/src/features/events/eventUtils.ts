@@ -24,19 +24,23 @@ export const formatDate = (dateStr?: string): string => {
 
 export const formatTime = (timeStr?: string): string => {
   if (!timeStr) return '—';
+
   const fmt = (t: string) => {
     const [h, m] = t.trim().split(':');
     const d = new Date();
     d.setHours(Number(h), Number(m));
+
     return d.toLocaleTimeString('en-GB', {
-      hour: '2-digit',
+      hour: 'numeric',
       minute: '2-digit',
-      hour12: true,
+      hour12: true, // 👈 24-hour format
     });
   };
+
   if (timeStr.includes('-')) {
     const [start, end] = timeStr.split('-');
     return `${fmt(start)} – ${fmt(end)}`;
   }
+
   return fmt(timeStr);
 };

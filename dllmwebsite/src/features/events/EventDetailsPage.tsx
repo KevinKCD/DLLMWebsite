@@ -9,6 +9,7 @@ import EventJoinSection from './components/EventJoinSection';
 import PlayersList from './components/PlayersList/PlayersList';
 import EventModal from './components/EventModal/EventModal';
 import { ArrowLeftIcon } from '../../components/icons';
+import DLLMBlue from '../../assets/images/DLLMBlue.png';
 import './EventDetailsPage.css';
 
 const EventDetailPage: React.FC = () => {
@@ -89,6 +90,15 @@ const EventDetailPage: React.FC = () => {
             accentColor={accentColor}
           />
 
+          {event.description && (
+            <div className="edp-description">
+              <h3 className="edp-description__title">About this event</h3>
+              <p className="edp-description__text">
+                {event.description as string}
+              </p>
+            </div>
+          )}
+
           <EventJoinSection
             joined={joined}
             cap={cap}
@@ -115,17 +125,22 @@ const EventDetailPage: React.FC = () => {
           initialValues={{
             title: event.activity as string,
             date: event.date as string,
-            time: event.time as string,
+            timeStart: event.time?.split('-')[0] || '',
+            timeEnd: event.time?.split('-')[1] || '',
             location: event.location as string,
             event: event.event as string,
             capacity: event.capacity as number,
             thumbnailUrl: event.thumbnailUrl as string,
+            description: event.description as string,
           }}
         />
       )}
 
       {toast && (
-        <div className={`edp-toast edp-toast--${toast.type}`}>{toast.msg}</div>
+        <div className={`edp-toast edp-toast--${toast.type}`}>
+          <img src={DLLMBlue} alt="logo" className="edp-toast__logo" />
+          <span>{toast.msg}</span>
+        </div>
       )}
     </div>
   );

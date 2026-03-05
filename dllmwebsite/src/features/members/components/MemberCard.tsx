@@ -1,27 +1,29 @@
 import React, { KeyboardEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './MemberCard.css';
 import { UserProfile } from '../../../types';
 
 interface MemberCardProps {
   member: UserProfile;
 }
 
+const getInitials = (name?: string) =>
+  (name || '?')
+    .split(' ')
+    .map((p) => p[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
+
 const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
   const navigate = useNavigate();
-  const { name, avatar, points = 0, uid, role, admin } = member;
+  const { name, avatar, points = 0, uid, role, admin, bio } = member;
   const memberRole = role || (admin ? 'admin' : 'member');
+  const isAdmin = memberRole === 'admin';
 
   const goToProfile = () => {
     if (!uid) return;
     navigate(`/profile/${uid}`);
   };
-
-  const safeRole = (memberRole || 'member')
-    .toString()
-    .toLowerCase()
-    .replace(/[^a-z0-9-]/g, '-');
-  const roleClass = `role-${safeRole}`;
 
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter') goToProfile();
@@ -29,28 +31,38 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
 
   return (
     <div
-      className={`member-card ${roleClass}`}
+      className="mc-card"
       role="button"
       tabIndex={0}
       onClick={goToProfile}
       onKeyDown={handleKeyDown}
     >
-      <div className="member-avatar-wrap">
-        <img src={avatar} alt={name} className="member-avatar" />
+      {/* Avatar — overlaps top of card */}
+      <div className="mc-avatar-wrap">
+        {avatar ? (
+          <img src={avatar} alt={name} className="mc-avatar-img" />
+        ) : (
+          <div className="mc-avatar-initials">{getInitials(name)}</div>
+        )}
       </div>
-      <div className="member-info">
-        <div className="member-top">
-          <h5 className="member-name">{name}</h5>
+
+      {/* Body */}
+      <div className="mc-body">
+        {/* Name */}
+        <h5 className="mc-name">{name}</h5>
+
+        {/* Points */}
+        <span className="mc-points">{points} pts</span>
+        <span className="mc-bio">{bio}</span>
+
+        {/* Role + sport-style pill tags row */}
+        <div className="mc-tags">
           <span
-            className={`member-badge ${memberRole === 'admin' ? 'admin' : 'member'}`}
-            aria-label={`role: ${memberRole}`}
+            className={`mc-role-tag ${isAdmin ? 'mc-role-tag--admin' : 'mc-role-tag--member'}`}
           >
-            {memberRole
-              ? memberRole.charAt(0).toUpperCase() + memberRole.slice(1)
-              : 'Member'}
+            {isAdmin ? 'Admin' : 'Member'}
           </span>
         </div>
-        <div className="member-points">{points} pts</div>
       </div>
     </div>
   );

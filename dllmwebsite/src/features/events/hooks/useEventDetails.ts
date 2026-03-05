@@ -19,6 +19,7 @@ export interface EventFormData {
   location?: string;
   event?: string;
   capacity?: number | string;
+  description?: string;
   thumbnailFile?: File | null;
   thumbnailUrl?: string | null;
   [key: string]: any;
@@ -83,19 +84,34 @@ export const useEventDetail = (
     if (!eventId || !userId || !event) return;
     setJoining(true);
     try {
-      const ref = doc(db, 'events', eventId);
+      const eventRef = doc(db, 'events', eventId);
+      const profileRef = doc(db, 'profiles', userId);
+
       const personEntry: Person = {
         uid: userId,
         name: user?.displayName || user?.name || 'Member',
         avatar: user?.avatar || user?.photoURL || '',
       };
+
       if (hasJoined) {
+        // Remove from event's people array
         const existing = people.find((p) => p.uid === userId);
-        await updateDoc(ref, { people: arrayRemove(existing ?? personEntry) });
-        pushToast('You have left the event.');
+        await updateDoc(eventRef, {
+          people: arrayRemove(existing ?? personEntry),
+        });
+
+        // Remove eventId from user's joinedEvents
+        await updateDoc(profileRef, { joinedEvents: arrayRemove(eventId) });
+
+        pushToast('You have left the event.', 'error');
       } else if (!isFull) {
-        await updateDoc(ref, { people: arrayUnion(personEntry) });
-        pushToast('You joined the event!');
+        // Add to event's people array
+        await updateDoc(eventRef, { people: arrayUnion(personEntry) });
+
+        // Add eventId to user's joinedEvents
+        await updateDoc(profileRef, { joinedEvents: arrayUnion(eventId) });
+
+        pushToast('You joined the event!', 'success');
       }
     } catch {
       pushToast('Something went wrong.', 'error');
@@ -117,6 +133,7 @@ export const useEventDetail = (
         location: data.location,
         event: data.event || '',
         capacity: Number(data.capacity) || 0,
+        description: data.description || '',
         ...(thumbnailUrl && { thumbnailUrl }),
       });
       pushToast('Event updated');

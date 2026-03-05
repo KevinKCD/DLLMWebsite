@@ -18,6 +18,7 @@ export interface Event {
   thumbnailUrl?: string | null;
   thumbnail?: string;
   _temp?: boolean;
+  description?: string;
 }
 
 export interface UserProfile {
