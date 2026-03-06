@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/DLLMWebsite/static/css/main.6a24ca76.css",
+    "main.js": "/DLLMWebsite/static/js/main.3a13ede2.js",
+    "static/media/DLLMBlue.png": "/DLLMWebsite/static/media/DLLMBlue.a1ba27195a12d5aac9bb.png",
+    "static/media/Logo.jpg": "/DLLMWebsite/static/media/Logo.a625e94a70cd1ed3545f.jpg",
+    "static/media/bootstrap-icons.woff?": "/DLLMWebsite/static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
+    "static/media/bootstrap-icons.woff2?": "/DLLMWebsite/static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
+    "static/media/fa-solid-900.woff2": "/DLLMWebsite/static/media/fa-solid-900.ce9a3fa740bd60b4ac3b.woff2",
+    "static/media/fa-brands-400.woff2": "/DLLMWebsite/static/media/fa-brands-400.f276979f97f1cf375d23.woff2",
+    "static/media/Homepage.jpg": "/DLLMWebsite/static/media/Homepage.a78fc3ebed9e9b3e0078.jpg",
+    "static/media/DLLMWhite.png": "/DLLMWebsite/static/media/DLLMWhite.3107c4fa13b7317a673f.png",
+    "static/media/fa-regular-400.woff2": "/DLLMWebsite/static/media/fa-regular-400.cfbad32c79d9dda6af4a.woff2",
+    "static/media/fa-v4compatibility.woff2": "/DLLMWebsite/static/media/fa-v4compatibility.296da06936a3373940c8.woff2",
+    "index.html": "/DLLMWebsite/index.html",
+    "main.6a24ca76.css.map": "/DLLMWebsite/static/css/main.6a24ca76.css.map",
+    "main.3a13ede2.js.map": "/DLLMWebsite/static/js/main.3a13ede2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6a24ca76.css",
+    "static/js/main.3a13ede2.js"
+  ]
+}

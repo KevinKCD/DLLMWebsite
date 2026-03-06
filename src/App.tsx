@@ -4,6 +4,7 @@ import {
   Routes,
   Route,
   Navigate,
+  HashRouter,
 } from 'react-router-dom';
 import ScrollToTop from './features/events/components/ScrollToTop';
 import Header from './components/Header/Header';
@@ -21,7 +22,7 @@ import './App.css';
 
 const App: React.FC = () => {
   return (
-    <Router>
+    <HashRouter>
       <div className="app-wrapper">
         <ScrollToTop />
         <Header />
@@ -43,7 +44,7 @@ const App: React.FC = () => {
         </main>
         <Footer />
       </div>
-    </Router>
+    </HashRouter>
   );
 };
 

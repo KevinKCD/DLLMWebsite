@@ -48,13 +48,13 @@ const Header: React.FC = () => {
       <div className="container-fluid d-flex align-items-center">
         {/* LEFT */}
         <div className="navbar-section navbar-left">
-          <a
-            href="/"
+          <Link
+            to="/homepage"
             className="navbar-brand d-flex align-items-center permanent-marker-regular"
           >
             <img src={logo} alt="DLLM Logo" className="logo-img me-2" />
             DLLM Sporting
-          </a>
+          </Link>
         </div>
 
         {/* CENTER */}
